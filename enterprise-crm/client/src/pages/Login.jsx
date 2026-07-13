@@ -22,25 +22,57 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-950 px-4">
-      <div className="max-w-md w-full bg-slate-900 border border-slate-800 p-8 rounded-2xl space-y-6">
-        <div className="flex flex-col items-center">
-          <div className="p-3 bg-indigo-600/10 rounded-xl text-indigo-500 mb-2">
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#020617', padding: '0 16px' }}>
+      <div style={{ maxWidth: '448px', width: '100%', backgroundColor: '#0f172a', border: '1px solid #1e293b', padding: '32px', borderRadius: '16px', boxSizing: 'border-box' }}>
+        
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '24px' }}>
+          <div style={{ padding: '12px', backgroundColor: 'rgba(79, 70, 229, 0.1)', borderRadius: '12px', color: '#6366f1', marginBottom: '8px' }}>
             <Code size={32} />
           </div>
-          <h2 className="text-2xl font-bold tracking-tight text-white">Access Identity Center</h2>
-          <p className="text-slate-400 text-sm mt-1">Authenticate access to node engine workspace</p>
+          <h2 style={{ fontSize: '24px', fontWeight: '700', color: '#ffffff', margin: '0', letterSpacing: '-0.025em' }}>Access Identity Center</h2>
+          <p style={{ color: '#94a3b8', fontSize: '14px', margin: '4px 0 0 0' }}>Authenticate access to node engine workspace</p>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-xs font-semibold uppercase text-slate-400 mb-1">Corporate Email Address</label>
-            <input type="email" required value={email} onChange={e => setEmail(e.target.value)} className="w-full p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-indigo-500 text-sm" />
+
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          
+          {/* Email Group */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', textTransform: 'uppercase', color: '#94a3b8' }}>
+              Corporate Email Address
+            </label>
+            <input 
+              type="email" 
+              required 
+              value={email} 
+              onChange={e => setEmail(e.target.value)} 
+              placeholder="admin@enterprise.com"
+              style={{ width: '100%', padding: '10px 12px', borderRadius: '8px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#ffffff', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }} 
+            />
           </div>
-          <div>
-            <label className="block text-xs font-semibold uppercase text-slate-400 mb-1">Secure Account Password</label>
-            <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-indigo-500 text-sm" />
+
+          {/* Password Group */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', textTransform: 'uppercase', color: '#94a3b8' }}>
+              Secure Account Password
+            </label>
+            <input 
+              type="password" 
+              required 
+              value={password} 
+              onChange={e => setPassword(e.target.value)} 
+              placeholder="••••••••"
+              style={{ width: '100%', padding: '10px 12px', borderRadius: '8px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#ffffff', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }} 
+            />
           </div>
-          <button type="submit" className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm rounded-lg transition-all shadow-lg shadow-indigo-600/20">Authorize and Synchronize</button>
+
+          {/* Submit Button */}
+          <button 
+            type="submit" 
+            style={{ width: '100%', padding: '10px 0', backgroundColor: '#4f46e5', color: '#ffffff', fontWeight: '600', fontSize: '14px', borderRadius: '8px', border: 'none', cursor: 'pointer', marginTop: '8px', boxShadow: '0 10px 15px -3px rgba(79, 70, 229, 0.3)' }}
+          >
+            Authorize and Synchronize
+          </button>
+
         </form>
       </div>
     </div>
