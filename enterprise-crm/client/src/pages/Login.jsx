@@ -10,18 +10,21 @@ export default function Login() {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // try {
-    //   const response = await API.post('/auth/login', { email, password });
-    //   login(response.data);
-    //   navigate('/');
-    // } catch (err) {
-    //   alert('Authentication exception thrown: verification structural match error');
-    // }
-    const dummyUser = { token: 'mock-token', user: { name: 'Admin', email: email } };
-  login(dummyUser); 
-  navigate('/');
+
+    // 🟢 Hardcoded Credentials for Portfolio/Testing
+    const adminEmail = "admin@enterprise.com";
+    const adminPassword = "admin123";
+
+    if (email === adminEmail && password === adminPassword) {
+      const dummyUser = { token: 'mock-token', user: { name: 'Admin', email: email } };
+      login(dummyUser); 
+      navigate('/');
+    } else {
+      // 🔴 Galat password par error state ya alert
+      alert('Authentication failed: Invalid identity credentials.');
+    }
   };
 
   return (
